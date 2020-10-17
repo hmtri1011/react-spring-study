@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, forwardRef } from 'react'
 import { animated } from 'react-spring'
 
 import { BoxProps } from '../Box'
@@ -9,18 +9,17 @@ interface BoxSpringProps extends BoxProps {
   springStyle?: CSSProperties
 }
 
-const BoxSpring: React.FC<BoxSpringProps> = ({
-  width = 50,
-  height = 50,
-  color = 'red',
-  springStyle
-}) => {
+const BoxSpring: React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  BoxSpringProps
+> = ({ width = 50, height = 50, color = 'red', springStyle }, ref) => {
   return (
     <animated.div
+      ref={ref}
       style={{ width, height, backgroundColor: color, ...springStyle }}
       className={styles.box}
     ></animated.div>
   )
 }
 
-export default BoxSpring
+export default forwardRef(BoxSpring)

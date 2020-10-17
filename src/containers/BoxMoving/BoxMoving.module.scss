@@ -1,0 +1,14 @@
+.container {
+  padding: 1rem;
+}
+
+.inputWrapper {
+  height: 3rem;
+  border-bottom: 1px solid #eee;
+}
+
+.boxContainer {
+  position: relative;
+  height: calc(100vh - 3rem - 2rem - 1px);
+  /* 3rem: height of input, 2rem: padding of the container, 1px: border bottom of input */
+}
